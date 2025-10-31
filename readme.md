@@ -1,4 +1,4 @@
-# Local ASR STT Benchmark
+# A Single Sample ASR STT Evaluation
 
 I was tired of guessing which Whisper model size to use for speech-to-text, so I ran a quick evaluation on my own setup to figure it out.  
 
@@ -8,6 +8,7 @@ I was tired of guessing which Whisper model size to use for speech-to-text, so I
  - My hardware (AMD, ROCM) isn't ideal for STT 
  - STT accuracy and ASR 
  - There are many variables when it comes to ASR accuracy ranging from microphone to  background noise conditions through to how you speak. I've seen measureable differences in results based upon the mic I use (etc)
+ -  Inference: CPU (!)
 
 
 ## For Next Time!
