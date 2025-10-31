@@ -1,21 +1,34 @@
 # Local ASR STT Benchmark
 
-I was tired of guessing which Whisper model size to use for speech-to-text, so I ran a quick evaluation on my own setup to figure it out. Here's what I found.
+I was tired of guessing which Whisper model size to use for speech-to-text, so I ran a quick evaluation on my own setup to figure it out.  
 
-**Important caveats:**
-- This was tested on **one audio sample** of my voice
-- Results are specific to **my hardware** (AMD Radeon RX 7700 XT, CPU-only inference)
-- Your results will vary based on your voice, audio quality, hardware, and use case
+ ## Limitations 
 
-That said, the patterns might still be useful as a rough guide.
+ - This was a "back of the envelope" style experiment and not intended as a definitive evaluation of local ASR inference. 
+ - My hardware (AMD, ROCM) isn't ideal for STT 
+ - STT accuracy and ASR 
+ - There are many variables when it comes to ASR accuracy ranging from microphone to  background noise conditions through to how you speak. I've seen measureable differences in results based upon the mic I use (etc)
+
+
+## For Next Time!
+
+I've attempted something like this (informally!) on Android with Futo but can never remember the results ...
+
+## A Thought
+
+This seemed like a big project but I thought it was worth it. If you're spending hours per day doing transcription (I am) then this is probably very worth your time. You can almost certainly set up a more robust evaluation than I can.
 
 ---
 
-## The Questions I Wanted to Answer
+# My Question Set 
 
 ### Q1: How much does model size actually matter for accuracy?
 
-**What I found:** It matters, but there are diminishing returns after small/medium.
+And more specifically: **on my hardware** where does diminishing returns set in?
+
+Diminishing returns in the case of STT means something like (to me): not worth STT becoming annoyingly laggy for minor gains in accuracy / decreases in WER. Colloquially, we'lll call this the "sweet spot."
+
+Answer: on my HW, it's at Whisper Medium (approximately and accpetable latency / the "sweet spot" depends heavily upon what STT workload you're doing; for live transcription even small lags are obviously significantly more problematic).
 
 ![WER by Model Size](results/wer_by_size.png)
 
@@ -30,7 +43,9 @@ On my test sample:
 
 ---
 
-### Q2: Is faster-whisper really as good as OpenAI Whisper?
+### Q2: Is faster-whisper really as good as OpenAI Whisper?'
+
+This question can be extended to the other Whisper variants. These are wonderful, but I've always been curious about what accuracy was like.
 
 **What I found:** On my test, yes - same accuracy, slightly faster.
 
@@ -65,6 +80,8 @@ On my hardware:
 ---
 
 ### Q4: Which model should I use for my daily STT workflow?
+
+There are many ASR models I would love to try out but on AMD it's just too much work to attempt to resolve dependencies. But if you're on NVIDIA and have CUDA ... there are many more questions worth exploring. On my hardware, and for round two, I would love to look at how much ASR outperforms "legacy" STT.
 
 **My personal answer:** base model with faster-whisper.
 
@@ -152,14 +169,7 @@ python scripts/visualize_results.py
 
 ---
 
-## Why I Made This
-
-I use STT daily (I dictate most of my typing) and was flying blind when it came to model selection. Figured I'd run this evaluation once to get some clarity for myself.
-
-Sharing it publicly in case the methodology or results are useful to someone else, but remember - this is **n=1 informal testing**, not rigorous research. Run your own tests to find what works for you.
- 
-
-## Hardware Context
+ ## Hardware Context
 
 My test environment:
 - **GPU**: AMD Radeon RX 7700 XT (but using CPU inference)
@@ -177,4 +187,4 @@ Models get downloaded to `~/models/stt/` with subdirectories for different engin
 
 ## License
 
-MIT - Use however you want. But seriously, test on your own audio before making decisions.
+MIT 
