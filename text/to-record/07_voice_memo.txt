@@ -1,0 +1,25 @@
+Voice Memo Dictation - STT Evaluation Script
+
+Voice memo, November 1st, around 10 AM.
+
+Just had an interesting thought about the STT benchmarking project. Instead of just measuring word error rate on clean audio, what if we tested performance degradation across different noise conditions? Like record the same script multiple times with incrementally increasing background noise - first totally silent room, then light ambient noise, then moderate background music, then simulated office environment with people talking, that kind of thing.
+
+That would give us much more realistic data about how these models perform in actual use cases. Nobody's dictating emails in a professional recording studio, right? We're doing it in coffee shops, home offices with kids in the background, cars, wherever.
+
+Could use something like Audacity to add synthetic noise to the recordings if I don't want to record everything multiple times. Though real-world noise would probably be more realistic. Maybe do a mix of both approaches.
+
+Also thinking about speaker diversity. Right now I'm just testing with my own voice but that's pretty limited. Different accents, ages, vocal characteristics all affect accuracy. Maybe recruit a few friends to read the same scripts? Would need to get their permission obviously but it would make the benchmark way more valuable.
+
+Oh and another thing - testing across different microphones. Built-in laptop mic versus USB podcasting mic versus smartphone versus headset mic. Quality of the input hardware definitely matters. Should document the full signal chain for each test.
+
+Speaking of which, need to standardize the recording format. I'm thinking 16 kilohertz WAV files, mono, 16-bit depth. That's pretty standard for speech applications. Some models might support higher sample rates but 16K should be the baseline.
+
+Also need to think about how to structure the test results. Probably a CSV file with columns for model name, audio file, word error rate, processing time, hardware specs. Then I can import it into pandas for analysis and visualization.
+
+Actually you know what, should probably create a proper database schema for this instead of just CSV files. SQLite would work fine. Tables for test runs, audio samples, models, results. That way I can query it flexibly later.
+
+Okay I'm getting ahead of myself. First priority is just getting the basic framework working with a few test samples. Can expand to more sophisticated testing later. Let's stay focused.
+
+Reminder to self - check if there are any existing STT benchmarking frameworks I can learn from or build on. No point reinventing the wheel if someone's already solved these problems.
+
+End memo.

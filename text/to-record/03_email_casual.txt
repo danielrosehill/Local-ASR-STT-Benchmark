@@ -1,0 +1,19 @@
+Casual Email Dictation - STT Evaluation Script
+
+New email to Marcus. Subject: Quick question about the server setup.
+
+Hey Marcus,
+
+Quick question for you. I'm trying to get that new Ubuntu VM running and I'm hitting some issues with the network configuration. Did you ever figure out the VLAN tagging stuff on the OPNsense firewall? I remember you mentioning something about it last month but I can't find the documentation.
+
+Basically what's happening is the VM can ping the gateway but can't reach anything outside the local network. DNS seems to be working fine - I can resolve domain names no problem - but actual traffic to the internet just times out. Really weird.
+
+I've checked the obvious stuff - default route is set correctly, firewall rules on the VM itself are wide open for testing, and the interface is definitely up. So I'm thinking it's gotta be something on the network side.
+
+If you've got five minutes sometime this week maybe you could swing by and take a look? Or if it's easier just send me those config notes and I'll try to figure it out myself. No huge rush, I can work on other stuff in the meantime.
+
+Oh also, totally unrelated but are you still planning to hit up that Linux meetup on Thursday? Let me know, I might tag along if you're going.
+
+Thanks man, appreciate it.
+
+End email.

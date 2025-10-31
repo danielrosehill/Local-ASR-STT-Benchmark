@@ -1,0 +1,33 @@
+Research Notes Dictation - STT Evaluation Script
+
+Research notes on speech recognition architectures, November 1st.
+
+Started looking into how modern STT systems actually work under the hood. Turns out the transformer architecture that revolutionized NLP also changed speech recognition completely.
+
+Traditional approach used to be HMM-based systems with GMM acoustic models. Hidden Markov Models and Gaussian Mixture Models if I'm remembering the terminology correctly. Required a lot of manual feature engineering and separate language models. Accuracy was okay but not great.
+
+Then came deep learning approaches with recurrent neural networks, specifically LSTMs and GRUs. These could learn temporal patterns in audio automatically without manual feature engineering. Big improvement over HMMs. But RNNs are slow to train because you can't parallelize across the time dimension.
+
+Transformers solved that problem. The key insight is using self-attention mechanisms instead of recurrence. Each time step can attend to all other time steps in parallel. Makes training way faster on modern GPUs. Also seems to learn better representations of long-range dependencies in speech.
+
+Whisper specifically uses an encoder-decoder transformer architecture. Encoder takes in the mel spectrogram representation of audio. That's basically a time-frequency representation that captures the spectral content of the sound. The encoder processes this into a continuous representation using multi-head self-attention and feed-forward layers.
+
+Decoder then generates text tokens autoregressively. Takes the encoder output and previously generated tokens as input. Uses both self-attention over previous tokens and cross-attention to the encoder output. Trained with teacher forcing where it learns to predict the next token given the ground truth previous tokens.
+
+Interesting thing about Whisper is it's trained on a massive dataset - 680,000 hours of audio. Mix of different languages, accents, recording conditions. This huge and diverse training set is probably why it generalizes so well. Previous models were trained on much smaller, cleaner datasets.
+
+Another key aspect is multitask training. Whisper isn't just trained for transcription. It also does language identification, timestamp prediction, and can handle multiple languages in a single model. This multitask approach seems to improve robustness.
+
+Model sizes range from tiny at 39 million parameters up to large at 1.5 billion parameters. There's a clear accuracy versus speed tradeoff. Larger models are more accurate but slower and require more memory. For real-time applications you probably want medium or small. For offline batch processing you can use large.
+
+Quantization can help reduce model size and increase speed with minimal accuracy loss. Going from 32-bit floating point to 16-bit or even 8-bit integer representations. Need to look into whether the Whisper implementation supports quantization out of the box.
+
+Beam search is used during decoding to explore multiple candidate transcriptions in parallel. Beam width of 5 is common. Larger beam widths might improve accuracy slightly but increase computational cost. Probably not worth going much higher than 10.
+
+Temperature parameter controls randomness in token generation. Lower temperature makes the model more deterministic, higher temperature more random. For transcription you want low temperature, probably 0 or close to it. Higher temperatures are more useful for creative text generation.
+
+Should also look into continuous versus discrete token representations. Some newer models use continuous token spaces but I think Whisper still uses discrete tokens from a fixed vocabulary. Need to verify that.
+
+Okay that's probably enough theoretical background for now. The practical question is how all this translates into real-world performance on my specific hardware with my specific use cases. That's what the benchmarking will tell me.
+
+End research notes.

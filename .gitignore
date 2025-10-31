@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Audio files (can be large)
+audio/*.wav
+audio/*.mp3
+audio/*.flac
+audio/*.ogg
+audio/*.m4a
+
+# Keep directory structure
+!audio/.gitkeep
+!text/.gitkeep
+!results/.gitkeep
+
+# Results
+results/*.csv
+results/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Conda
+.conda/

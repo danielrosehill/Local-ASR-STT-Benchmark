@@ -1,0 +1,25 @@
+Blog Post Outline Dictation - STT Evaluation Script
+
+Okay, blog post ideas. Title, something like "Why I Switched to Local Speech Recognition and Never Looked Back" - maybe a bit clickbaity but whatever, it works.
+
+Intro paragraph - start with a hook about privacy concerns with cloud services. Talk about that moment when you realize all your voice data is being processed on someone else's servers. Maybe mention a specific incident or news story about data breaches to make it relatable.
+
+Section one - The Privacy Problem. Go into detail about what happens when you use cloud STT services. Where does the data go, who has access, how long is it stored. Mention GDPR compliance issues for European users. Include some statistics if I can find them about data breaches in cloud services.
+
+Section two - The Performance Surprise. This is where I talk about testing local models and being shocked that they're actually just as good as cloud services for most use cases. Include some specific benchmarks - word error rates, processing speed, that kind of thing. Maybe include screenshots of test results.
+
+Section three - The Setup Process. Walk through what it actually takes to get a local system running. Be honest about the learning curve but also emphasize that it's not as hard as people think. Include commands, configuration examples, troubleshooting tips. Make it practical so readers can actually follow along.
+
+Section four - Real World Usage. Talk about how I've been using it for the past few months. What works well - dictating emails, blog posts, documentation. What doesn't work as well - maybe really noisy environments or highly technical jargon depending on the model. Be balanced and honest.
+
+Section five - Cost Analysis. Break down the actual costs. Cloud services charge per minute which adds up over time versus one-time hardware investment for local processing. Include a simple spreadsheet or calculation showing break-even point.
+
+Conclusion - Tie it all together. Not saying everyone should do this, but for people who care about privacy and have moderate technical skills, it's absolutely worth considering. Include a call to action like "try it yourself and let me know how it goes" or something.
+
+Maybe end with some resources - links to Whisper documentation, hardware recommendations, GitHub repos with setup scripts. Make it actionable.
+
+Oh and throughout the whole thing, include personal anecdotes. People connect with stories more than dry technical explanations. Talk about specific moments of frustration during setup, or moments of joy when it finally worked.
+
+Also need to decide on images - maybe screenshots of the transcription interface, graphs showing accuracy comparisons, photos of my actual hardware setup. Visual content is important for blog posts.
+
+Okay I think that's a solid outline. Now I just need to actually write the thing.

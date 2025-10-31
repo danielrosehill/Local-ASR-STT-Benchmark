@@ -1,1 +1,0 @@
-# Local-ASR-STT-Benchmark

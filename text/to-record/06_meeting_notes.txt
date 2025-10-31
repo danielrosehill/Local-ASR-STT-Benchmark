@@ -1,0 +1,25 @@
+Meeting Notes Dictation - STT Evaluation Script
+
+Meeting notes from November 1st, project planning session with the dev team.
+
+Attendees were myself, Rachel from frontend, Tom from backend, and Lisa our product manager.
+
+Main topic - discussing the roadmap for Q1 next year. Lisa started by presenting the feature requests that came in from customer feedback. Top three priorities are batch processing for large files, webhook integration for automated workflows, and improved error handling with more detailed error messages.
+
+Rachel raised concerns about the batch processing feature. Current frontend architecture isn't really designed for handling multiple file uploads efficiently. Would need to refactor the upload component and probably implement some kind of queue management system. Estimated that would take about three weeks of development time plus another week for testing.
+
+Tom mentioned that backend can handle batch processing no problem. The API is already set up to process multiple requests concurrently. Main bottleneck would be database writes if we're talking about hundreds of files simultaneously. Suggested implementing a job queue with Redis to manage that. Everyone agreed that makes sense.
+
+For webhooks, Lisa wants to support both success and failure callbacks. Also wants to include payload data with the results so customers can automatically trigger downstream processes. Tom said that's straightforward, maybe a week of work. Rachel asked if we need a UI for configuring webhooks or if it's just API-based configuration. Lisa wasn't sure, said she'd check with a few key customers and get back to us.
+
+Error handling discussion got interesting. Currently we just return generic HTTP error codes but customers are asking for more context. Like specifically what went wrong - was it a file format issue, a processing timeout, insufficient credits, whatever. Tom proposed implementing standardized error codes similar to what Stripe does. Everyone liked that idea. Lisa's going to draft up a spec for the error code taxonomy and we'll review it next week.
+
+Timeline-wise, we're aiming to have batch processing done by end of January. Webhooks by mid-February. Error handling improvements can roll out incrementally starting in December since it's less complex.
+
+Rachel mentioned she'll be out the last week of December for holidays. Tom is taking off the first week of January. So we need to plan around that for sprint schedules.
+
+Action items - Lisa sends error code spec by next Monday. Tom creates technical design doc for webhook implementation. Rachel starts prototyping the batch upload UI. I'll update the project timeline in Jira and send it around for review.
+
+Next meeting scheduled for November 8th same time. Lisa will have customer feedback on the webhook configuration question by then.
+
+Meeting adjourned at 3:45 PM.

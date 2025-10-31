@@ -1,0 +1,29 @@
+Project Planning Dictation - STT Evaluation Script
+
+Okay, planning out this local STT benchmark project from scratch. Let me think through the architecture and requirements.
+
+Core objective is to compare different speech recognition models running locally on my hardware. Need to measure accuracy, speed, resource usage, and maybe other metrics like startup time and memory footprint.
+
+Models to test - definitely Whisper in various sizes, tiny through large. Maybe also Vosk if I can get it running. Coqui STT if that's still actively maintained. Should check what else is available. NeMo from NVIDIA might be worth including if it works with ROCm on AMD GPUs, not sure about that.
+
+Test data - need diverse audio samples representing different use cases. Dictated emails, voice memos, meeting recordings, maybe some podcast audio for longer form content. Should vary the audio quality and noise conditions too. Maybe aim for like 20 to 30 different test files covering different scenarios.
+
+Evaluation metrics - word error rate is the obvious one. Also need to measure real-time factor, that's processing time divided by audio duration. Character error rate might be useful too. And definitely track GPU memory usage, CPU usage, and processing latency.
+
+Infrastructure - probably need a Python script that loads models, processes audio files, compares output against reference transcriptions, and generates reports. SQLite database to store results. Maybe a simple web interface for viewing results but that's lower priority.
+
+Reference transcriptions - this is important. Need ground truth text for each audio sample. Can either transcribe manually which is tedious, or use a high-quality commercial service to generate them and then manually verify. Probably the latter approach makes more sense.
+
+Hardware monitoring - need to capture GPU stats during processing. ROCm-smi for AMD GPU metrics. Psutil for CPU and RAM monitoring. Should log these at regular intervals during transcription.
+
+Reproducibility - document everything. Exact model versions, hardware specs, driver versions, Python package versions. Should probably use a conda environment or Docker container to make it reproducible. Actually Docker might be overkill for this, conda should be fine.
+
+Timeline - realistically this is probably a two to three week project if I'm working on it part time. Week one, set up infrastructure and get basic testing working with one model. Week two, add more models and expand test coverage. Week three, analysis, documentation, and maybe writing up the results as a blog post or technical report.
+
+Potential challenges - GPU compatibility with different models. Some might only work with CUDA and not ROCm. Might need to test both on GPU and CPU to get complete coverage. Also transcription quality varies a lot by language, but I'm only testing English so that simplifies things.
+
+Stretch goals if I have time - test multilingual performance with a few other languages. Test streaming versus batch processing. Test different audio codecs and sample rates. Quantify the accuracy versus speed tradeoff for different model sizes.
+
+Open questions - should I make this a public GitHub repo? Could be useful for other people doing similar evaluations. Would need to be careful about licensing for test audio though. Maybe generate synthetic test data or use public domain audio sources.
+
+Okay I think that's enough planning for now. Next step is to actually create the project structure and start coding. Let's do this.

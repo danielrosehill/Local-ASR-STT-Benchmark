@@ -1,0 +1,27 @@
+# STT Benchmarking Dependencies
+
+# Core STT engines
+faster-whisper>=1.0.0
+openai-whisper>=20231117
+
+# Evaluation metrics
+jiwer>=3.0.0
+
+# Audio processing
+soundfile>=0.12.0
+librosa>=0.10.0
+pydub>=0.25.0
+
+# Data handling & analysis
+numpy>=1.24.0
+pandas<2.0  # Keep <2.0 for TTS compatibility if needed later
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Utilities
+tqdm>=4.65.0
+
+# Optional: TTS (Coqui) - uncomment if needed
+# TTS>=0.22.0

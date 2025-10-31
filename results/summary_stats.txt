@@ -1,0 +1,14 @@
+
+=== Model Size Comparison ===
+Best accuracy: medium (WER: 6.07%)
+Fastest: tiny (2.73s)
+Best balance: tiny
+
+=== Engine Comparison ===
+faster-whisper: WER=9.95%, Time=5.01s
+openai-whisper: WER=9.95%, Time=6.17s
+
+=== Variant Comparison ===
+faster-whisper: WER=9.95%, Time=4.87s
+openai-whisper: WER=9.95%, Time=6.51s
+distil-whisper: WER=21.60%, Time=38.49s

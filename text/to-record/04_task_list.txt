@@ -1,0 +1,19 @@
+Okay, tasks for today. Let me think through what needs to get done.
+
+First priority - finish that pull request for the authentication module. Need to add unit tests for the password reset flow and update the documentation. Should probably take about two hours if I focus.
+
+Second, respond to the GitHub issues that came in over the weekend. There were three of them I think? One was about the Docker configuration, one was a feature request for bulk export, and I forget the third one. Check notifications and respond to all of them.
+
+Third, schedule that call with the design team about the new dashboard layout. Need to find a time that works for everyone in different time zones. Probably afternoon my time works best. Send out a calendar invite with a few options.
+
+Oh right, also need to update the deployment pipeline. The staging environment is still using the old build configuration and it's causing issues with the environment variables. That's been on my list for like two weeks now, really need to just knock it out.
+
+Personal tasks - grocery shopping at some point, need milk, eggs, coffee, and vegetables. Maybe do that during lunch break if I have time.
+
+Also need to backup the NAS. Haven't done that in a while and that's just asking for trouble. Schedule it to run overnight tonight.
+
+And finally - this is less urgent but I want to start experimenting with that new STT benchmarking framework. Maybe allocate Friday afternoon for that if I get the other stuff done early in the week.
+
+Actually one more thing - follow up with David about the server maintenance window. We were supposed to schedule that for next weekend but I never got confirmation. Send him a quick message.
+
+Okay that's everything I think. Let's get started.
