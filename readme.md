@@ -1,15 +1,20 @@
-# A Single Sample ASR STT Evaluation
+# A Single Sample ASR STT Evaluation (On Local Hardware)
 
 I was tired of guessing which Whisper model size to use for speech-to-text, so I ran a quick evaluation on my own setup to figure it out.  
 
- ## Limitations 
+ ## Limitations
 
- - This was a "back of the envelope" style experiment and not intended as a definitive evaluation of local ASR inference. 
- - My hardware (AMD, ROCM) isn't ideal for STT 
- - STT accuracy and ASR 
+ - This was a "back of the envelope" style experiment and not intended as a definitive evaluation of local ASR inference.
+ - My hardware (AMD, ROCM) isn't ideal for STT
+ - STT accuracy and ASR
  - There are many variables when it comes to ASR accuracy ranging from microphone to  background noise conditions through to how you speak. I've seen measureable differences in results based upon the mic I use (etc)
  -  Inference: CPU (!)
 
+## Test Sample
+
+All tests were run on **[audio/001.wav](audio/001.wav)** - you can listen to the actual sample used in this evaluation.
+
+**Source of truth (reference text):** [text/recorded/01_conversational_casual.txt](text/recorded/01_conversational_casual.txt)
 
 ## For Next Time!
 
@@ -121,32 +126,7 @@ On my test:
 - **Recommended engine**: faster-whisper
 
 ---
-
-## What's in This Repo
-
-**Scripts** (in `scripts/`):
-- `benchmark_stt.py` - Core benchmarking script
-- `test_all_sizes.py` - Tests all Whisper sizes (tiny → large-v3)
-- `compare_engines.py` - Compares faster-whisper vs openai-whisper
-- `compare_fast_variants.py` - Compares different faster-whisper implementations
-- `visualize_results.py` - Generates charts from benchmark results
-
-**Results** (in `results/`):
-- CSV files with WER, CER, and timing data from my tests
-- Visualizations (PNG charts)
-- Summary statistics
-
-**Sample Data**:
-- `audio/` - My test audio file
-- `text/` - Reference transcription
-
-**Documentation**:
-- `answers.md` - Full analysis and methodology
-- `setup.md` - How I set up my environment
-- `models.md` - Info about the models tested
-- `examples.md` - Usage examples if you want to run your own tests
-
----
+ 
 
 ## Running Your Own Tests
 
@@ -173,6 +153,7 @@ python scripts/visualize_results.py
  ## Hardware Context
 
 My test environment:
+
 - **GPU**: AMD Radeon RX 7700 XT (but using CPU inference)
 - **CPU**: Intel Core i7-12700F
 - **RAM**: 64 GB
